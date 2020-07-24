@@ -1,5 +1,6 @@
 import React from "react";
 import { useObserver, useLocalStore } from "mobx-react-lite";
+import "./index.scss";
 
 export const Home = () => {
   const store = useLocalStore(() => ({
@@ -9,10 +10,14 @@ export const Home = () => {
     },
   }));
   return useObserver(() => (
-    <div>
+    <div className="home">
       <div>Count: {store.count}</div>
-      <button onClick={() => store.setCount(store.count + 1)}>+</button>
-      <button onClick={() => store.setCount(store.count - 1)}>-</button>
+      <button className="px-2" onClick={() => store.setCount(store.count + 1)}>
+        +
+      </button>
+      <button className="px-2" onClick={() => store.setCount(store.count - 1)}>
+        -
+      </button>
     </div>
   ));
 };
