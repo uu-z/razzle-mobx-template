@@ -4,7 +4,6 @@ import { Home } from "./pages/Home";
 
 import "./App.scss";
 import { useStore } from "../common/store/index";
-import { utils } from "../common/utils/index";
 
 const App = () => {
   //@ts-ignore
