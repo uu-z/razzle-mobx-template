@@ -1,0 +1,1 @@
+{ "Query": { "name": "Query", "fields": { "hello": { "type": "String" }, "__typename": { "type": "String" } }, "scalar": ["hello"] }, "String": { "name": "String" }, "Boolean": { "name": "Boolean" } }
