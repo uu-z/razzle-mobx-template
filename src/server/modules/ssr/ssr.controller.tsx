@@ -11,8 +11,10 @@ let assets = require(process.env.RAZZLE_ASSETS_MANIFEST!);
 export class SSRController {
   @Get()
   public renderSSRIndex(@Req() req: Request) {
-    const rootStore = {};
+    //@ts-ignore
+
     const context = {};
+    const rootStore = {};
 
     const markup = renderToString(
       <StaticRouter context={context} location={req.url}>

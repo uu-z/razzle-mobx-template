@@ -2,6 +2,11 @@ export class Env {
   isSSR() {
     return typeof window === "undefined";
   }
+  onBrowser(func) {
+    if (this.isBrowser()) {
+      func();
+    }
+  }
   isBrowser() {
     return typeof window === "object";
   }

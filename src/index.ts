@@ -12,7 +12,6 @@ export async function bootstrap() {
   });
   app.disable("x-powered-by");
   app.use(helmet()).use(compression());
-  app.set("trust proxy", 1);
   app.useStaticAssets(process.env.RAZZLE_PUBLIC_DIR, {
     index: false,
     redirect: false,

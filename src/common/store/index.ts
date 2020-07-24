@@ -3,6 +3,7 @@ import { extendObservable } from "mobx";
 import { useStaticRendering } from "mobx-react";
 import React from "react";
 import { BaseStore } from "./base";
+import { LangStore } from "./lang";
 
 if (utils.env.isSSR()) {
   useStaticRendering(true);
@@ -11,6 +12,7 @@ if (utils.env.isSSR()) {
 export const createRootStore = () => {
   return {
     base: new BaseStore(),
+    lang: new LangStore(),
   };
 };
 
