@@ -4,7 +4,7 @@ import { GraphQLModule } from "@nestjs/graphql";
 import { ConfigModule } from "@nestjs/config";
 import { TemplateController } from "./modules/template/template.controller";
 import { TemplateResolver } from "./modules/template/template.resolver";
-
+import { AuthModule } from "./modules/auth/auth.module";
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -16,7 +16,9 @@ import { TemplateResolver } from "./modules/template/template.resolver";
           "request.credentials": "include",
         },
       },
+      context: ({ req }) => ({ req }),
     }),
+    AuthModule,
   ],
   controllers: [TemplateController, SSRController],
   providers: [TemplateResolver],

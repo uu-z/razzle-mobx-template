@@ -1,3 +1,3 @@
 export const privateConfig = {
-  foo: "bar",
+  JWT_SECRET: process.env.JWT_SECRET || "TEST",
 };
