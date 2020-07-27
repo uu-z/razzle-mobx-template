@@ -3,5 +3,5 @@ import remotedev from "mobx-remotedev";
 
 @remotedev({ name: "base" })
 export class BaseStore {
-  @observable token = "";
+  @observable NODE_ENV = "";
 }

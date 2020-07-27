@@ -4,6 +4,7 @@ import { Controller, Get, Req } from "@nestjs/common";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import { Request } from "express";
+import { BaseStore } from "../../../common/store/base";
 
 let assets = require(process.env.RAZZLE_ASSETS_MANIFEST!);
 
@@ -11,10 +12,14 @@ let assets = require(process.env.RAZZLE_ASSETS_MANIFEST!);
 export class SSRController {
   @Get()
   public renderSSRIndex(@Req() req: Request) {
-    //@ts-ignore
-
     const context = {};
-    const rootStore = {};
+    const rootStore = {
+      base: {
+        NODE_ENV: process.env.NODE_ENV,
+      },
+    } as {
+      base: Partial<BaseStore>;
+    };
 
     const markup = renderToString(
       <StaticRouter context={context} location={req.url}>
